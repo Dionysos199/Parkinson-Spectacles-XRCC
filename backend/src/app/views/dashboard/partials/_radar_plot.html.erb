@@ -1,0 +1,53 @@
+
+<!-- radar plot config -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+var marksCanvas = document.getElementById("marksChart");
+
+
+var marksData = {
+  labels: ["predicted-UPDRS", "Frequency", "Frequency-Intensity", "Intensity", "        Peak"],
+  datasets: [{
+    label: "Left hand",
+    backgroundColor: "rgba(200,0,0,0.2)",
+    data: [
+        <%= select_L[:updrs_score] %>, 
+        <%= select_L[:mean_freq_score] %>, 
+        <%= select_L[:mean_inte_freq_score] %>, 
+        <%= select_L[:mean_inte_score] %>, 
+        <%= select_L[:mean_peak_score] %>
+    ]}, {
+    label: "Right hand",
+    backgroundColor: "rgba(0,0,200,0.2)",
+    data: [
+        <%= select_R[:updrs_score] %>, 
+        <%= select_R[:mean_freq_score] %>, 
+        <%= select_R[:mean_inte_freq_score] %>, 
+        <%= select_R[:mean_inte_score] %>, 
+        <%= select_R[:mean_peak_score] %>
+    ]}]
+};
+
+var radarChart = new Chart(marksCanvas, {
+  type: 'radar',
+  data: marksData,
+   options: {
+        scales: {
+            r: {
+                suggestedMin: 15,
+                suggestedMax: 80,
+                grid: {
+                    color: ['#332D2D', '#DC4C64', '#FBFBFB', '#E4A11B', '#FBFBFB', '#54B4D3', '#FBFBFB', '#14A44D']
+                },
+                pointLabels: {
+                    font: {
+                        size: 15
+                    }
+                }
+            }
+        
+        }
+        
+    }
+});
+</script>

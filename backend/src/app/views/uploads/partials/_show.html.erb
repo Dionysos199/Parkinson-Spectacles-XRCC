@@ -1,0 +1,64 @@
+
+<% if @upload.status == 'done' %>
+    <div class="overflow-auto">
+    <br>
+    <div class="row" style="width:1000px">
+        <div class="col-4 d-flex justify-content-center">
+            <%= video_tag(url_for(@upload.results.blobs[1]), class: "rounded", height: "450vh", :controls => true,  muted: true, :autoplay => true)%>
+        </div>
+        <div class="col-5 d-flex justify-content-center">
+            <%= image_tag(url_for(@upload.results.blobs[3]), height: "450vh") if @upload.results.blobs[3] != nil %>
+        </div>
+        <div class="col-3 d-flex justify-content-center">
+            <%= render "uploads/partials/params_col", upload: @upload %>
+        </div>
+    </div>
+    <p>Note: If the video cannot be played, please download and play it locally.</p>
+    </div>
+    <!-- show radar chart only if all five scores are available -->
+    <% if @upload[:updrs] %>
+        <br>
+        <div class="row justify-content-center" style="width:900px height:400px">
+            <div class="chart-container" style="width: 60vh">
+                <canvas id="marksChart"></canvas>
+                <!-- radar chart source -->
+                <% render "partials/linear_transform" %>
+                <% @upload_score = {
+                    :updrs_score => linear_transform("UPDRS", @upload[:updrs]),
+                    :mean_freq_score => linear_transform("frequency", @upload[:mean_freq]),
+                    :mean_inte_freq_score => linear_transform("inte_freq", @upload[:mean_inte_freq]),
+                    :mean_inte_score => linear_transform("intensity", @upload[:mean_inte]),
+                    :mean_peak_score => linear_transform("peak", @upload[:mean_peak])
+                } %>
+                <% if @upload[:hand_LR] == "left" %>
+                    <%= render "dashboard/partials/radar_plot", select_L: @upload_score, select_R: @empty_upload %>
+                <% else %>
+                    <%= render "dashboard/partials/radar_plot", select_L: @empty_upload, select_R: @upload_score %>
+                <% end %>
+                <p class="text-center">
+                    <%= render "partials/80_20_scale" %>
+                </p>
+            </div>
+        </div>
+    <% end %>
+<% else %>
+    <div class="overflow-auto">
+    <div class="row" style="min-width:400px">
+        <div class="col-md-5 d-flex justify-content-center">
+            <%= video_tag(url_for(@upload.video), class: "rounded", height: "450vh", :controls => true,  muted: true, :autoplay => true)%>
+        </div>
+        <br>
+        <div class="col-md-5 d-flex justify-content-center"> 
+            <b class="fs-5"><br>
+            Note: The video is assigned to 
+            <p class="badge bg-primary"> <%= @upload.hand_LR %> </p>
+            hand, please check whether it is correct or edit 
+            <%= link_to 'here', edit_upload_path(:id => @upload.id), data: {turbo: false}, class: "badge bg-warning text-dark" %> 
+            . </b>
+        </div>
+    </div>
+    <p>Note: If the video cannot be played, please download and play it locally.</p>
+    </div>
+<% end %>
+
+<%# byebug %>
