@@ -1,0 +1,115 @@
+- !<AssetImportMetadata/8e50ce17-767e-49c5-bba1-48cb4077706a>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 18a61277-19c5-482b-be07-776745377ce5
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 18a61277-19c5-482b-be07-776745377ce5
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    AssetLibraryId: 2AyovH41UH3UJ2Mf6RRbs0
+  AssetDataMap:
+    JavaScriptAsset: !<own> 337020a7-20bb-483f-a629-dfc6a005991c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/337020a7-20bb-483f-a629-dfc6a005991c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 36a6a169-a566-4dbd-8ee2-d38b021dd0a4
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    backgroundObject: false
+    buttonObject: false
+    callbackType: false
+    customFunctionScript: false
+    disableTouchEvents: false
+    disabledColor: false
+    disabledTexture: false
+    editAdvancedOptions: false
+    editConnections: false
+    editEventCallbacks: false
+    editProperties: false
+    endEndpoint: false
+    initialToggleValue: false
+    interactable: false
+    onToggleBehaviors: false
+    onToggleFunctionNames: false
+    onToggleGlobalBehaviors: false
+    onToggleOffBehaviors: false
+    onToggleOffFunctionNames: false
+    onToggleOffGlobalBehaviors: false
+    onToggleOnBehaviors: false
+    onToggleOnFunctionNames: false
+    onToggleOnGlobalBehaviors: false
+    printDebugStatements: false
+    printWarningStatements: false
+    startEndpoint: false
+    toggleOffColor: false
+    toggleOffTexture: false
+    toggleOnColor: false
+    toggleOnTexture: false
+    toggleTouchEvent: false
+    useColors: false
+    useTextures: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - interactable: true
+      initialToggleValue: false
+      editProperties: false
+      startEndpoint: -0.800000
+      endEndpoint: 0.800000
+      useColors: false
+      toggleOnColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      toggleOffColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      disabledColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+      useTextures: false
+      toggleOnTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      toggleOffTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      disabledTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      editEventCallbacks: false
+      callbackType: 0
+      onToggleOffBehaviors: !<reference.ScriptComponent[]>
+        []
+      onToggleOnBehaviors: !<reference.ScriptComponent[]>
+        []
+      onToggleBehaviors: !<reference.ScriptComponent[]>
+        []
+      onToggleOffGlobalBehaviors: !<string[]>
+        []
+      onToggleOnGlobalBehaviors: !<string[]>
+        []
+      onToggleGlobalBehaviors: !<string[]>
+        []
+      customFunctionScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onToggleOffFunctionNames: !<string[]>
+        []
+      onToggleOnFunctionNames: !<string[]>
+        []
+      onToggleFunctionNames: !<string[]>
+        []
+      editAdvancedOptions: false
+      printDebugStatements: false
+      printWarningStatements: true
+      disableTouchEvents: false
+      editConnections: false
+      backgroundObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      buttonObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      toggleTouchEvent: TouchStartEvent
+  ScriptTypes:
+    -
+      {}

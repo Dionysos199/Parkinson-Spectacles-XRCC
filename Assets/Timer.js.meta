@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/36431559-f945-46a7-bb0a-547c6152c42a>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 5dd22570-86e1-4d13-a0b5-ce517c20838c
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 5dd22570-86e1-4d13-a0b5-ce517c20838c
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 61cd4ff7-50b1-4b29-b66c-7658972da986
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/61cd4ff7-50b1-4b29-b66c-7658972da986>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 22983c12-38f4-44d7-824f-2d46864949c6
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    greenHand: false
+    handTriggerObject: false
+    holdDuration: false
+    recordingCountdownText: false
+    recordingTimer: false
+    redHand: false
+    timerText: false
+    triggerName: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - holdDuration: !<float> 2.000000
+      triggerName: Recording_Start
+      recordingTimer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      timerText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      handTriggerObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      redHand: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      greenHand: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      recordingCountdownText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

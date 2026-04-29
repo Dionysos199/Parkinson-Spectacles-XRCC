@@ -1,0 +1,85 @@
+- !<AssetImportMetadata/40e16b0e-dcfa-4fc8-8e55-621ca939e3c4>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 4864ad19-e5d0-4580-8693-be8f42221286
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 4864ad19-e5d0-4580-8693-be8f42221286
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    AssetLibraryId: 2AyovH41UH3UJ2Mf6RRbs0
+  AssetDataMap:
+    JavaScriptAsset: !<own> c50143b5-e94a-4d36-827b-13bb4e8dd2f0
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/c50143b5-e94a-4d36-827b-13bb4e8dd2f0>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e70b7c8b-9693-4444-8ca5-e383fbcb0727
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    backgroundObject: false
+    callbackType: false
+    circlePadding: false
+    customFunctionScript: false
+    disableTouchEvents: false
+    editAdvancedOptions: false
+    editConnections: false
+    editEventCallbacks: false
+    editProperties: false
+    gridCol: false
+    gridPadding: false
+    initialSelection: false
+    interactable: false
+    layout: false
+    onSelectionChangedBehaviors: false
+    onSelectionChangedFunctionNames: false
+    onSelectionChangedGlobalBehaviors: false
+    printDebugStatements: false
+    printWarningStatements: false
+    selectionObject: false
+    useButtonWidgets: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - interactable: true
+      editProperties: false
+      layout: 0
+      gridCol: 2
+      gridPadding: !<float> 0.000000
+      circlePadding: !<float> 0.000000
+      initialSelection: 0
+      useButtonWidgets: false
+      editEventCallbacks: false
+      callbackType: 0
+      onSelectionChangedBehaviors: !<reference.ScriptComponent[]>
+        []
+      onSelectionChangedGlobalBehaviors: !<string[]>
+        []
+      customFunctionScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onSelectionChangedFunctionNames: !<string[]>
+        []
+      editAdvancedOptions: false
+      printDebugStatements: false
+      printWarningStatements: true
+      disableTouchEvents: false
+      editConnections: false
+      backgroundObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      selectionObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

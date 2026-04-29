@@ -1,0 +1,46 @@
+- !<AssetImportMetadata/41065fca-9548-4839-8929-b81ebd299b5d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 5afe2d28-c71b-4a13-a1c4-f6fa2ec8b4f4
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 5afe2d28-c71b-4a13-a1c4-f6fa2ec8b4f4
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 245a6c1d-b79f-45e1-9810-a066f573636d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/245a6c1d-b79f-45e1-9810-a066f573636d>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 0ec86d88-f1fd-42e7-80f4-690b201d5bb8
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    recordDuration: false
+    serviceModule: false
+    timerScript: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - recordDuration: !<float> 20.000000
+      timerScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      serviceModule: !<reference.InternetModule> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

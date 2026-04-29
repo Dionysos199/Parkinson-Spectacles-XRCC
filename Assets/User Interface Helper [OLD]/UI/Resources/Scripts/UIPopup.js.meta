@@ -1,0 +1,54 @@
+- !<AssetImportMetadata/c44e81a2-3b9e-4f0e-9d12-55610336f268>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> fb8dcf93-de03-460a-aa20-c1b6e7ff21f6
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> fb8dcf93-de03-460a-aa20-c1b6e7ff21f6
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    AssetLibraryId: 2AyovH41UH3UJ2Mf6RRbs0
+  AssetDataMap:
+    JavaScriptAsset: !<own> 8a33f06d-7f7a-4b15-8940-5b9102f63a43
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/8a33f06d-7f7a-4b15-8940-5b9102f63a43>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 52dd407e-570f-4049-bc55-d75057d267fa
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    editAdvancedOptions: false
+    editConnections: false
+    popupDirection: false
+    popupIconObject: false
+    popupVisualTarget: false
+    printDebugStatements: false
+    printWarningStatements: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - popupDirection: right
+      editAdvancedOptions: false
+      printDebugStatements: false
+      printWarningStatements: true
+      editConnections: false
+      popupIconObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      popupVisualTarget: !<reference.MaterialMeshVisual> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
