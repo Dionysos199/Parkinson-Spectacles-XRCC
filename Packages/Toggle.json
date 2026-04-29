@@ -1,0 +1,33 @@
+{
+    "assetId": "4w6Zt4phpL8Fv318LRt4c4",
+    "description": "Toggle\n\nDescription:\nToggle UI element.\n\nUsage:\n\nAttach Custom Component to a Scene Object under the Orthographic Camera.\n\nAPI:\n\nswitch(): void - animated switches the toggle if interactions are allowed.\n\non(): void - animated switches to the \"On\" state. Allows interactions if this option was disabled.\n\noff(): void - animated switches to the \"Off\" state. Allows interactions if this option was disabled.\n\nenableInteractable(): void - enables Interactable and invokes animations for the new toggle's state.\n\ndisableInteractable(): void - Disables Interactable and invokes animations for the disabled state.\n\nenableButton(): void - enables the Button's image.\n\ndisableButton(): void - disables the Button's image.\n\nenableIcon(): void - enables the Icon's image. The icon is the foreground texture for the toggle button.\n\ndisableIcon(): void - disables Icon's image. The icon is the foreground texture for the toggle button.\n\n(read-only) effectiveState: string - the effective toggle state: \"On\" or \"Off\". Providing clarity on what the state of the toggle would be if it were enabled.\n\ntoggleState: string - the current toggle state: \"On\", \"Off\" or \"Disabled\".\n\nanchorOn: number - anchor position (x) of the button in the \"On\" state.\n\nanchorOff: number - anchor position (x) of the button in the \"Off\" state.\n\nanchorDisabled: number - anchor position (x) of the button in the \"Disable\" state.\niconOn: Texture - icon's texture of the button in the \"On\" state.\n\niconOff: Texture - icon's texture of the button in the \"Off\" state.\n\niconDisabled: Texture - icon's texture of the button in the \"Disable\" state.\n\nbackgroundColorOn: vec4 - color of the background in the \"On\" state.\n\nbackgroundColorOff: vec4 - color of the background in the \"Off\" state.\n\nbackgroundColorDisabled: vec4 - color of the background in the \"Disable\" state.\n\nbuttonColorOn: vec4 - color of the background in the \"On\" state.\n\nbuttonColorOff: vec4 - color of the button in the \"Off\" state.\n\nbuttonColorDisabled: vec4 - color of the button in the \"Disable\" state.\n\nAPI Events:\n\nonState - triggers when the toggle switches to the \"On\" state.\n\noffState - triggers when the toggle switches to the \"Off\" state.\n\nstateChanged - triggers when the toggle changes its state.\n\nonTouchStart - triggers when starts touching on the toggle.\n\nonTouchMove - triggers when touching moves on the toggle.\n\nonTouchEnd - triggers when ends touching on the toggle.\n\nonEnabledInteractable - triggers when the toggle becomes interactable.\n\nonDisabledInteractable - triggers when the toggle becomes non-interactable.\n",
+    "filePaths": [
+        "Default Prefabs/.hidden/SpritePreset.lsmat.mat",
+        "Default Prefabs/.hidden/SpritePreset1.lsmat.ss_graph",
+        "Default Prefabs/.hidden/SpritePreset2.lsmat.mat",
+        "Default Prefabs/Textures/Toggle Bg.png",
+        "Default Prefabs/Textures/Toggle Button.png",
+        "Default Prefabs/Toggle Background.prefab",
+        "Default Prefabs/Toggle Handle.prefab",
+        "Modules/Animation/AnimationUtils.ts",
+        "Modules/Animation/Easing.ts",
+        "Modules/Animation/PropertyAnimator.ts",
+        "Modules/BehaviorSupport/BehaviorEventCallbacks.ts",
+        "Modules/BehaviorSupport/BehaviorSystem.d.ts",
+        "Modules/Debug/ComponentWithDebug.ts",
+        "Modules/Event/Event.ts",
+        "Modules/Scene/DestructionHelper.ts",
+        "Modules/Scene/PassHelper.ts",
+        "package.native",
+        "Toggle.ts"
+    ],
+    "hash": "3234a970f84e1725d80a4b243bf15acc",
+    "lastModified": 1777500611762,
+    "name": "Toggle",
+    "tags": [],
+    "uid": "efa926e1-2b93-4acb-8e9b-491c69462e1c",
+    "uidExported": "a7b3dc24-4506-4ed5-9c8d-32eea886a605",
+    "versionMajor": 1,
+    "versionMinor": 0,
+    "versionPatch": 1
+}

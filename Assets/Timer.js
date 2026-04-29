@@ -14,17 +14,39 @@ var triggered = false;
 var recordingTimeLeft = 0;
 var recordingDuration = 10.0;
 
+// Debounce: gesture must be absent for this long before holdTimer resets
+var GESTURE_END_GRACE = 0.35;
+var gestureEndPending = false;
+var gestureEndTimer = 0;
+
 var onEnableEvent = script.createEvent("TurnOnEvent");
 onEnableEvent.bind(function() {
     isHolding = false;
     holdTimer = 0;
     triggered = false;
+    gestureEndPending = false;
+    gestureEndTimer = 0;
     if (script.timerText) script.timerText.text = script.holdDuration.toFixed(1);
+    if (script.redHand) script.redHand.enabled = true;
+    if (script.greenHand) script.greenHand.enabled = false;
 });
 
 var updateEvent = script.createEvent("UpdateEvent");
 updateEvent.bind(function(eventData) {
     var dt = getDeltaTime();
+
+    // Grace period countdown — only reset holdTimer after sustained gesture absence
+    if (gestureEndPending) {
+        gestureEndTimer -= dt;
+        if (gestureEndTimer <= 0) {
+            gestureEndPending = false;
+            isHolding = false;
+            holdTimer = 0;
+            triggered = false;
+            if (script.timerText) script.timerText.text = script.holdDuration.toFixed(1);
+            print("Gesture hold broken");
+        }
+    }
 
     if (isHolding && !triggered) {
         holdTimer += dt;
@@ -54,17 +76,21 @@ var recordingActive = false;
 // Call this when gesture starts
 script.onGestureStart = function() {
     if (recordingActive) return;
+    // Cancel any pending reset from a brief flicker
+    gestureEndPending = false;
+    gestureEndTimer = 0;
     isHolding = true;
-    holdTimer = 0;
     triggered = false;
+    if (script.greenHand) script.greenHand.enabled = true;
+    if (script.redHand) script.redHand.enabled = false;
 }
 
-// Call this when gesture ends
+// Call this when gesture ends — starts grace period instead of resetting immediately
 script.onGestureEnd = function() {
-    isHolding = false;
-    holdTimer = 0;
-    triggered = false;
-    print("Gesture hold broken");
+    gestureEndPending = true;
+    gestureEndTimer = GESTURE_END_GRACE;
+    if (script.redHand) script.redHand.enabled = true;
+    if (script.greenHand) script.greenHand.enabled = false;
 }
 
 // Expose functions for HandJointDataCollector to call
