@@ -1,7 +1,7 @@
 CollapsedEntities:
   type: stringset
   value:
-    size: 1161
+    size: 1162
     values:
       - ""
       - 3D Text Styles.json
@@ -1075,6 +1075,7 @@ CollapsedEntities:
       - SpectaclesUIKit.svg
       - Timer.js
       - Timer.json
+      - Toggle.lsc
       - "User Interface Helper [OLD]"
       - "User Interface Helper [OLD]/.hidden"
       - "User Interface Helper [OLD]/.hidden/Asset.Material.mat"
