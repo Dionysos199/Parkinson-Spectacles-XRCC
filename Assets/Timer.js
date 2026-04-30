@@ -50,12 +50,14 @@ updateEvent.bind(function(eventData) {
 
     if (isHolding && !triggered) {
         holdTimer += dt;
-        if (script.timerText) script.timerText.text = (script.holdDuration - holdTimer).toFixed(1);
 
         if (holdTimer >= script.holdDuration) {
             triggered = true;
+            if (script.timerText) script.timerText.text = "0.0";
             global.behaviorSystem.sendCustomTrigger(script.triggerName);
             print("Recording triggered!");
+        } else {
+            if (script.timerText) script.timerText.text = (script.holdDuration - holdTimer).toFixed(1);
         }
     }
 
