@@ -15,6 +15,8 @@ var JOINT_NAMES = [
     "Pinky0", "Pinky1", "Pinky2", "Pinky3"
 ];
 
+global.startRecording = function() { script.startRecording(); };
+
 script.startRecording = function() {
     frames = [];
     cachedJoints = [];
@@ -68,8 +70,24 @@ for (var f = 0; f < frames.length; f++) {
         print("Status: " + res.statusCode);
         print("Body: " + res.body);
         if (res.statusCode === 200) {
-            global.assessmentResults = JSON.parse(res.body);
-            global.behaviorSystem.sendCustomTrigger("Results_Ready");
+            try {
+                var safe = res.body
+                    .replace(/:NaN/g,       ":0")
+                    .replace(/:-Infinity/g, ":0")
+                    .replace(/:Infinity/g,  ":0");
+                global.assessmentResults = JSON.parse(safe);
+                print("[HJD] showResults exists: " + (typeof global.showResults));
+                if (global.showResults) {
+                    global.showResults();
+                } else {
+                    print("[HJD] ERROR: global.showResults is not defined");
+                }
+                global.behaviorSystem.sendCustomTrigger("Results_Ready");
+            } catch (e) {
+                print("[HJD] ERROR: " + e);
+            }
+        } else {
+            print("[HJD] Non-200 status: " + res.statusCode);
         }
         if (script.timerScript) script.timerScript.setRecordingActive(false);
     });

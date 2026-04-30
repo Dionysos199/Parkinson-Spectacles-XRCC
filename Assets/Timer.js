@@ -14,10 +14,11 @@ var triggered = false;
 var recordingTimeLeft = 0;
 var recordingDuration = 10.0;
 
-// Debounce: gesture must be absent for this long before holdTimer resets
 var GESTURE_END_GRACE = 0.35;
 var gestureEndPending = false;
 var gestureEndTimer = 0;
+
+var recordingActive = false;
 
 var onEnableEvent = script.createEvent("TurnOnEvent");
 onEnableEvent.bind(function() {
@@ -27,15 +28,16 @@ onEnableEvent.bind(function() {
     gestureEndPending = false;
     gestureEndTimer = 0;
     if (script.timerText) script.timerText.text = script.holdDuration.toFixed(1);
-    if (script.redHand) script.redHand.enabled = true;
-    if (script.greenHand) script.greenHand.enabled = false;
+    if (!recordingActive) {
+        if (script.redHand) script.redHand.enabled = true;
+        if (script.greenHand) script.greenHand.enabled = false;
+    }
 });
 
 var updateEvent = script.createEvent("UpdateEvent");
 updateEvent.bind(function(eventData) {
     var dt = getDeltaTime();
 
-    // Grace period countdown — only reset holdTimer after sustained gesture absence
     if (gestureEndPending) {
         gestureEndTimer -= dt;
         if (gestureEndTimer <= 0) {
@@ -54,7 +56,11 @@ updateEvent.bind(function(eventData) {
         if (holdTimer >= script.holdDuration) {
             triggered = true;
             if (script.timerText) script.timerText.text = "0.0";
-            global.behaviorSystem.sendCustomTrigger(script.triggerName);
+            if (global.startRecording) {
+                global.startRecording();
+            } else {
+                global.behaviorSystem.sendCustomTrigger(script.triggerName);
+            }
             print("Recording triggered!");
         } else {
             if (script.timerText) script.timerText.text = (script.holdDuration - holdTimer).toFixed(1);
@@ -73,31 +79,30 @@ updateEvent.bind(function(eventData) {
     }
 });
 
-var recordingActive = false;
-
 // Call this when gesture starts
 script.onGestureStart = function() {
     if (recordingActive) return;
-    // Cancel any pending reset from a brief flicker
     gestureEndPending = false;
     gestureEndTimer = 0;
     isHolding = true;
     triggered = false;
     if (script.greenHand) script.greenHand.enabled = true;
     if (script.redHand) script.redHand.enabled = false;
-}
+};
 
-// Call this when gesture ends — starts grace period instead of resetting immediately
+// Call this when gesture ends
 script.onGestureEnd = function() {
+    if (recordingActive) return;
     gestureEndPending = true;
     gestureEndTimer = GESTURE_END_GRACE;
     if (script.redHand) script.redHand.enabled = true;
     if (script.greenHand) script.greenHand.enabled = false;
-}
+};
 
-// Expose functions for HandJointDataCollector to call
+// Called by HandJointDataCollector when recording starts or stops
 script.setRecordingActive = function(val) {
     recordingActive = val;
+    global.isRecordingActive = val;
     if (script.handTriggerObject) script.handTriggerObject.enabled = !val;
     if (script.redHand) script.redHand.enabled = !val;
     if (script.greenHand) script.greenHand.enabled = !val;
@@ -112,4 +117,4 @@ script.setRecordingActive = function(val) {
             script.recordingCountdownText.text = "";
         }
     }
-}
+};

@@ -175,6 +175,7 @@ function bindDefaultGesture(gestureName, customStartResponse, customEndResponse,
 
 
 function generateTriggerResponse(gestureName) {
+    if (global.isRecordingActive) return;
     if (global.behaviorSystem) {
         global.behaviorSystem.sendCustomTrigger(DEFAULT_GESTURES[gestureName]);
     }
