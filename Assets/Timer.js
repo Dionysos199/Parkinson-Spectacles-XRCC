@@ -1,6 +1,7 @@
 // @input float holdDuration = 2.0
 // @input string triggerName = "Recording_Start"
 
+// @input SceneObject startButtonObject
 // @input SceneObject recordingTimer
 // @input Component.Text timerText
 // @input SceneObject handTriggerObject
@@ -19,6 +20,30 @@ var gestureEndPending = false;
 var gestureEndTimer = 0;
 
 var recordingActive = false;
+var sessionActive = false;
+
+// ── Pre-session state: show start button, hide gesture UI ──
+if (script.startButtonObject) script.startButtonObject.enabled = true;
+if (script.redHand) script.redHand.enabled = false;
+if (script.greenHand) script.greenHand.enabled = false;
+if (script.timerText) script.timerText.enabled = false;
+if (script.recordingTimer) script.recordingTimer.enabled = false;
+if (script.recordingCountdownText) script.recordingCountdownText.enabled = false;
+// handTriggerObject stays enabled so the first pinch reaches onGestureStart
+
+// ── Activate session on first pinch ──
+script.activateSession = function() {
+    if (sessionActive) return;
+    sessionActive = true;
+    if (script.startButtonObject) script.startButtonObject.enabled = false;
+    if (script.redHand) script.redHand.enabled = true;
+    if (script.greenHand) script.greenHand.enabled = false;
+    if (script.timerText) {
+        script.timerText.enabled = true;
+        script.timerText.text = script.holdDuration.toFixed(1);
+    }
+    print("Session activated.");
+};
 
 var onEnableEvent = script.createEvent("TurnOnEvent");
 onEnableEvent.bind(function() {
@@ -28,7 +53,7 @@ onEnableEvent.bind(function() {
     gestureEndPending = false;
     gestureEndTimer = 0;
     if (script.timerText) script.timerText.text = script.holdDuration.toFixed(1);
-    if (!recordingActive) {
+    if (!recordingActive && sessionActive) {
         if (script.redHand) script.redHand.enabled = true;
         if (script.greenHand) script.greenHand.enabled = false;
     }
@@ -82,6 +107,11 @@ updateEvent.bind(function(eventData) {
 // Call this when gesture starts
 script.onGestureStart = function() {
     if (recordingActive) return;
+    if (!sessionActive) {
+        // First pinch activates the session instead of starting hold timer
+        script.activateSession();
+        return;
+    }
     gestureEndPending = false;
     gestureEndTimer = 0;
     isHolding = true;
@@ -93,6 +123,7 @@ script.onGestureStart = function() {
 // Call this when gesture ends
 script.onGestureEnd = function() {
     if (recordingActive) return;
+    if (!sessionActive) return;
     gestureEndPending = true;
     gestureEndTimer = GESTURE_END_GRACE;
     if (script.redHand) script.redHand.enabled = true;
